@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export const useLocalStorage(key, initialValue) => {
+export const useLocalStorage = (key, initialValue) => {
     
     const [storedValue, setStoredValue] = useState(() => {
         
@@ -9,6 +9,7 @@ export const useLocalStorage(key, initialValue) => {
         return item ? JSON.parse(item) : initialValue;          
        
       });
+      // eslint-disable-next-line
       const setValue = value => {
     
         setStoredValue(value);
@@ -16,7 +17,7 @@ export const useLocalStorage(key, initialValue) => {
         window.localStorage.setItem(key, JSON.stringify(value));
       };
       return [storedValue];
-    };
+    }
     
 
     
